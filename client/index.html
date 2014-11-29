@@ -8,21 +8,21 @@
 </head>
   <body>
     <h1>My First Heading</h1>
-    <form role='form'>
+    <form name='form' role='form' novalidate>
       <div class='form-group'>
       	<label> Username: </label>
-	    <input class='form-control' ng-model='username'>
+	    <input class='form-control' ng-model='username' required>
 	  </div>
 	  <div class='form-group'>
 	  	<label>Password:</label>
-	    <input class='form-control' type='password' ng-model='password'>
-	    {{username}}
+	    <input class='form-control' type='password' ng-model='password' required>
+	    <!-- {{username}} -->
 	  </div>
 	  <div class='form-group'>
 	  	<label>Retype Password:</label>
-	    <input  class='form-control' type='password' ng-model='passwordCheck'>    
+	    <input  class='form-control' type='password' ng-model='passwordCheck' required>    
 	  </div>
-	    <button  type="submit" class="btn btn-success">Login!</button>
+	    <button  type="submit" ng-disabled='form.$invalid' class="btn btn-success">Login!</button>
 	</form>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <link rel="stylesheet" type="text/css" href="styles/styles.css">
