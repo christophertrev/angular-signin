@@ -1,0 +1,24 @@
+<form name='form' class='form-horizontal well' role='form' novalidate>
+  <div class='form-group'>
+  	<label class='col-xs-4'> Username: </label>
+  	<div class='col-xs-12'>
+	  <input class='form-control' ng-model='username' required>
+  	</div>
+  </div>
+  <div class='form-group'>
+  	<label class='col-sm-1'>Password:</label>
+  	<div class='col-xs-12'>
+	  <input class='form-control' type='password' ng-model='password' required>
+  	</div>
+    <!-- {{username}} -->
+  </div>
+  <div class='form-group'>
+  	<label class='col-sm-12'>Retype Password:</label>
+  	<div class='col-xs-12'>
+	  <input  class='form-control' type='password' ng-model='passwordCheck' required>    
+  	</div>
+  </div>
+  <div class='form-group'>
+    <button type="submit" ng-disabled='form.$invalid' class="btn btn-success  col-xs-3 col-xs-offset-8">Login!</button>
+  </div>
+</form>
