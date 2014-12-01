@@ -1,6 +1,7 @@
 <pre ng-show={{debugger}}>Password: {{password}} Password2: {{passwordCheck}}
 Form Invalid : {{form.$invalid}}
 Form NotValid: {{isNotValid()}}
+Has Char : {{hasSpecialChar(password)}}
 </pre>
 <form name='form' class='form-horizontal well' role='form' novalidate>
   <div class='form-group'>
@@ -13,6 +14,7 @@ Form NotValid: {{isNotValid()}}
   	<label class='col-sm-1'>Password:</label>
   	<div class='col-xs-12'>
 	  <input class='form-control' type='password' ng-model='password' required>
+	<div class='alert alert-danger' ng-show='!hasSpecialChar(password) && form.$dirty'>%#%@%^!, You need Special Chars</div>
   	</div>
     <!-- {{username}} -->
   </div>

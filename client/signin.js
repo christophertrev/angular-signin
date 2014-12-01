@@ -18,8 +18,15 @@ angular.module('signin', [
     $scope.debugger = true;
     $scope.isNotValid = function (){
       if($scope.password  === $scope.passwordCheck){
-        return false
+        return false;
       } 
-      return true
+      return true;
+    }
+    $scope.isLongEnough = function (password){
+      return password.length > 8;
+    }
+    $scope.hasSpecialChar = function (password){
+      var regex = /\W/;
+      return regex.test(password)
     }
   })
