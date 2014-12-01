@@ -2,6 +2,9 @@
 Form Invalid : {{form.$invalid}}
 Form NotValid: {{isNotValid()}}
 Has Char : {{hasSpecialChar(password)}}
+Islong : {{isLongEnough(password)}}
+Is dirty : {{form.password.$dirty}}
+<!-- {{form|json}} -->
 </pre>
 <form name='form' class='form-horizontal well' role='form' novalidate>
   <div class='form-group'>
@@ -10,11 +13,14 @@ Has Char : {{hasSpecialChar(password)}}
 	  <input class='form-control' ng-model='username' required>
   	</div>
   </div>
-  <div class='form-group'>
+  <div class='form-group'>  
   	<label class='col-sm-1'>Password:</label>
   	<div class='col-xs-12'>
-	  <input class='form-control' type='password' ng-model='password' required>
-	<div class='alert alert-danger' ng-show='!hasSpecialChar(password) && form.$dirty'>%#%@%^!, You need Special Chars</div>
+	  <input name= 'password' class='form-control' type='password' ng-model='password' required>
+	  <ul class='alert alert-danger' ng-show='!hasAnyErrors(password) && form.password.$dirty'>
+	  		<li class='errors' ng-show='!hasSpecialChar(password) && form.password.$dirty'><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> %#%@%^!, You need Special Chars</li>
+  			<li class='errors' ng-show='!isLongEnough(password) && form.$dirty'><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Needs to be longer than 8 characters</li>
+	  </ul>
   	</div>
     <!-- {{username}} -->
   </div>

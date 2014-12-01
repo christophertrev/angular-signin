@@ -10,6 +10,9 @@ angular.module('signin', [
           'left-side':{
             templateUrl: 'views/signin.html',
             controller: 'signinForm'
+          },
+          'right-side':{
+            templateUrl: 'views/fred.html'
           }
         },
       })
@@ -23,10 +26,16 @@ angular.module('signin', [
       return true;
     }
     $scope.isLongEnough = function (password){
+      if (password === undefined){
+        return false
+      }
       return password.length > 8;
     }
     $scope.hasSpecialChar = function (password){
       var regex = /\W/;
       return regex.test(password)
+    }
+    $scope.hasAnyErrors = function (password){
+      return $scope.hasSpecialChar(password) && $scope.isLongEnough(password)
     }
   })

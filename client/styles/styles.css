@@ -4,7 +4,9 @@
   border-color: #9A5AE8;
 }
 
-
+li.errors{
+  list-style-type: none;
+}
 input.ng-invalid.ng-dirty {
   background-color: #FA787E;
 }
