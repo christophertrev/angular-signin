@@ -15,10 +15,11 @@ angular.module('signin', [
       })
   })
   .controller('signinForm', function ($scope) {
-    console.log('pass', $scope.password)
     $scope.debugger = true;
-    $scope.isValid = function (){
-      var re = /a/
-      // return $scope.password ? $scope.password.match() : false
+    $scope.isNotValid = function (){
+      if($scope.password  === $scope.passwordCheck){
+        return false
+      } 
+      return true
     }
   })
